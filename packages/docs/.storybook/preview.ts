@@ -1,6 +1,8 @@
 import { themes } from '@storybook/theming';
 import type { Preview } from "@storybook/react";
 
+import '@sf-digital-ui/react/dist/index.css';
+
 const preview: Preview = {
   parameters: {
     backgrounds: {default: "dark"},
