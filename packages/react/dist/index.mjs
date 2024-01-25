@@ -222,7 +222,7 @@ var Avatar2 = (props) => {
 };
 Avatar2.displayName = "Avatar";
 
-// src/components/Button/index.tsx
+// src/components/Button/ButtonRoot/index.tsx
 import { tv } from "tailwind-variants";
 import { jsx as jsx3 } from "react/jsx-runtime";
 var button = tv({
@@ -242,7 +242,7 @@ var button = tv({
     }
   }
 });
-var Button = (_a) => {
+var Root2 = (_a) => {
   var _b = _a, { variant, className } = _b, props = __objRest(_b, ["variant", "className"]);
   return /* @__PURE__ */ jsx3(
     "button",
@@ -253,6 +253,13 @@ var Button = (_a) => {
       })
     })
   );
+};
+
+// src/components/Button/ButtonPrefix/index.tsx
+import { jsx as jsx4 } from "react/jsx-runtime";
+var Prefix = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ jsx4("div", __spreadValues({}, props));
 };
 
 // src/components/TextInput/styles.ts
@@ -272,7 +279,7 @@ var TextInputContainer = styled("div", {
     cursor: "not-allowed"
   }
 });
-var Prefix = styled("span", {
+var Prefix2 = styled("span", {
   fontFamily: "$default",
   fontSize: "$sm",
   color: "$gray400",
@@ -298,12 +305,12 @@ var Input = styled("input", {
 });
 
 // src/components/TextInput/index.tsx
-import { jsx as jsx4, jsxs as jsxs2 } from "react/jsx-runtime";
+import { jsx as jsx5, jsxs as jsxs2 } from "react/jsx-runtime";
 function TextInput(_a) {
   var _b = _a, { prefix } = _b, props = __objRest(_b, ["prefix"]);
   return /* @__PURE__ */ jsxs2(TextInputContainer, { children: [
-    !!prefix && /* @__PURE__ */ jsx4(Prefix, { children: prefix }),
-    /* @__PURE__ */ jsx4(Input, __spreadValues({}, props))
+    !!prefix && /* @__PURE__ */ jsx5(Prefix2, { children: prefix }),
+    /* @__PURE__ */ jsx5(Input, __spreadValues({}, props))
   ] });
 }
 TextInput.displayName = "TextInput";
@@ -390,9 +397,9 @@ var CheckboxIndicator = styled(Checkbox.Indicator, {
 });
 
 // src/components/Checkbox/index.tsx
-import { jsx as jsx5 } from "react/jsx-runtime";
+import { jsx as jsx6 } from "react/jsx-runtime";
 function Checkbox2(props) {
-  return /* @__PURE__ */ jsx5(CheckboxContainer, __spreadProps(__spreadValues({}, props), { children: /* @__PURE__ */ jsx5(CheckboxIndicator, { asChild: true, children: /* @__PURE__ */ jsx5(Check, { weight: "bold" }) }) }));
+  return /* @__PURE__ */ jsx6(CheckboxContainer, __spreadProps(__spreadValues({}, props), { children: /* @__PURE__ */ jsx6(CheckboxIndicator, { asChild: true, children: /* @__PURE__ */ jsx6(Check, { weight: "bold" }) }) }));
 }
 Checkbox2.displayName = "Checkbox";
 
@@ -424,7 +431,7 @@ var Step = styled("div", {
 });
 
 // src/components/MultiStep/index.tsx
-import { jsx as jsx6, jsxs as jsxs3 } from "react/jsx-runtime";
+import { jsx as jsx7, jsxs as jsxs3 } from "react/jsx-runtime";
 function MultiStep({ size, currentStep = 1 }) {
   return /* @__PURE__ */ jsxs3(MultiStepContainer, { children: [
     /* @__PURE__ */ jsxs3(Label, { children: [
@@ -433,8 +440,8 @@ function MultiStep({ size, currentStep = 1 }) {
       " de ",
       size
     ] }),
-    /* @__PURE__ */ jsx6(Steps, { css: { "--steps-size": size }, children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
-      return /* @__PURE__ */ jsx6(Step, { active: currentStep >= step }, step);
+    /* @__PURE__ */ jsx7(Steps, { css: { "--steps-size": size }, children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
+      return /* @__PURE__ */ jsx7(Step, { active: currentStep >= step }, step);
     }) })
   ] });
 }
@@ -452,10 +459,11 @@ export {
   Avatar2 as Avatar,
   Box,
   BoxTest,
-  Button,
   Checkbox2 as Checkbox,
   Heading,
   MultiStep,
+  Prefix,
+  Root2 as Root,
   Text,
   TextArea,
   TextInput,

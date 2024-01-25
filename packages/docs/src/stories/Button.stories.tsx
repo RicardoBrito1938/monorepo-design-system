@@ -1,62 +1,61 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Button, ButtonProps } from '@sf-digital-ui/react'
-import { ArrowRight } from 'phosphor-react'
-import '@sf-digital-ui/react/dist/output.css'
-
+import type { Meta, StoryObj } from "@storybook/react";
+import * as Button from "@sf-digital-ui/react/src/components/Button";
+import { ArrowRight } from "phosphor-react";
+import "@sf-digital-ui/react/dist/output.css";
 
 export default {
-  title: 'Form/Button',
-  component: Button,
+  title: "Form/Button",
+  component: Button.Root,
   args: {
-    children: 'Send',
-    variant: 'primary',
-    size: 'md',
+    children: "Send",
+    variant: "primary",
+    size: "md",
     disabled: false,
   },
   argTypes: {
     variant: {
-      options: ['primary', 'outline', 'ghost'],
+      options: ["primary", "outline", "ghost"],
       control: {
-        type: 'inline-radio',
+        type: "inline-radio",
       },
     },
     disabled: {
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
-    action: 'click',
+    action: "click",
   },
-} as Meta<ButtonProps>
+} as Meta<typeof Button.Root>;
 
-export const Primary: StoryObj<ButtonProps> = {}
+export const Primary: StoryObj<typeof Button.Root> = {};
 
-export const Outline: StoryObj<ButtonProps> = {
+export const Outline: StoryObj<typeof Button.Root> = {
   args: {
-    variant: 'outline',
-    children: 'Create new',
+    variant: "outline",
+    children: "Create new",
   },
-}
+};
 
-export const Ghost: StoryObj<ButtonProps> = {
+export const Ghost: StoryObj<typeof Button.Root> = {
   args: {
-    variant: 'ghost',
-    children: 'Cancel',
+    variant: "ghost",
+    children: "Cancel",
   },
-}
+};
 
-export const WithIcon: StoryObj<ButtonProps> = {
+export const WithIcon: StoryObj<typeof Button.Root> = {
   args: {
     children: (
-      <>
-        <ArrowRight weight="bold" />   Next Step
-      </>
+      <Button.Prefix>
+        <ArrowRight weight="bold" /> Next Step
+      </Button.Prefix>
     ),
   },
-}
+};
 
-export const Disabled: StoryObj<ButtonProps> = {
+export const Disabled: StoryObj<typeof Button.Root> = {
   args: {
     disabled: true,
   },
-}
+};

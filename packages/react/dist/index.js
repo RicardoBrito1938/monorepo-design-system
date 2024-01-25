@@ -62,10 +62,11 @@ __export(src_exports, {
   Avatar: () => Avatar2,
   Box: () => Box,
   BoxTest: () => BoxTest,
-  Button: () => Button,
   Checkbox: () => Checkbox2,
   Heading: () => Heading,
   MultiStep: () => MultiStep,
+  Prefix: () => Prefix,
+  Root: () => Root2,
   Text: () => Text,
   TextArea: () => TextArea,
   TextInput: () => TextInput,
@@ -271,7 +272,7 @@ var Avatar2 = (props) => {
 };
 Avatar2.displayName = "Avatar";
 
-// src/components/Button/index.tsx
+// src/components/Button/ButtonRoot/index.tsx
 var import_tailwind_variants = require("tailwind-variants");
 var import_jsx_runtime3 = require("react/jsx-runtime");
 var button = (0, import_tailwind_variants.tv)({
@@ -291,7 +292,7 @@ var button = (0, import_tailwind_variants.tv)({
     }
   }
 });
-var Button = (_a) => {
+var Root2 = (_a) => {
   var _b = _a, { variant, className } = _b, props = __objRest(_b, ["variant", "className"]);
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "button",
@@ -302,6 +303,13 @@ var Button = (_a) => {
       })
     })
   );
+};
+
+// src/components/Button/ButtonPrefix/index.tsx
+var import_jsx_runtime4 = require("react/jsx-runtime");
+var Prefix = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", __spreadValues({}, props));
 };
 
 // src/components/TextInput/styles.ts
@@ -321,7 +329,7 @@ var TextInputContainer = styled("div", {
     cursor: "not-allowed"
   }
 });
-var Prefix = styled("span", {
+var Prefix2 = styled("span", {
   fontFamily: "$default",
   fontSize: "$sm",
   color: "$gray400",
@@ -347,12 +355,12 @@ var Input = styled("input", {
 });
 
 // src/components/TextInput/index.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 function TextInput(_a) {
   var _b = _a, { prefix } = _b, props = __objRest(_b, ["prefix"]);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(TextInputContainer, { children: [
-    !!prefix && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Prefix, { children: prefix }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Input, __spreadValues({}, props))
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(TextInputContainer, { children: [
+    !!prefix && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Prefix2, { children: prefix }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Input, __spreadValues({}, props))
   ] });
 }
 TextInput.displayName = "TextInput";
@@ -439,9 +447,9 @@ var CheckboxIndicator = styled(Checkbox.Indicator, {
 });
 
 // src/components/Checkbox/index.tsx
-var import_jsx_runtime5 = require("react/jsx-runtime");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 function Checkbox2(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CheckboxContainer, __spreadProps(__spreadValues({}, props), { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CheckboxIndicator, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_phosphor_react2.Check, { weight: "bold" }) }) }));
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CheckboxContainer, __spreadProps(__spreadValues({}, props), { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CheckboxIndicator, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react2.Check, { weight: "bold" }) }) }));
 }
 Checkbox2.displayName = "Checkbox";
 
@@ -473,17 +481,17 @@ var Step = styled("div", {
 });
 
 // src/components/MultiStep/index.tsx
-var import_jsx_runtime6 = require("react/jsx-runtime");
+var import_jsx_runtime7 = require("react/jsx-runtime");
 function MultiStep({ size, currentStep = 1 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(MultiStepContainer, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Label, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(MultiStepContainer, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(Label, { children: [
       "Passo ",
       currentStep,
       " de ",
       size
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Steps, { css: { "--steps-size": size }, children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
-      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Step, { active: currentStep >= step }, step);
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Steps, { css: { "--steps-size": size }, children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Step, { active: currentStep >= step }, step);
     }) })
   ] });
 }
@@ -502,10 +510,11 @@ BoxTest.displayName = "BoxTest2";
   Avatar,
   Box,
   BoxTest,
-  Button,
   Checkbox,
   Heading,
   MultiStep,
+  Prefix,
+  Root,
   Text,
   TextArea,
   TextInput,
